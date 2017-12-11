@@ -41,6 +41,12 @@
             android:layout_height="wrap_content"
             android:text="Next in cursor" />
 
+        <ImageView
+            android:id="@+id/cat_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/alert_dark_frame" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
