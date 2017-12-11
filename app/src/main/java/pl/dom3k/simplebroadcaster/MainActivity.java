@@ -25,4 +25,13 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter filter2 = new IntentFilter("pl.dom3k.broadcaster2.broadcast.MY_NOTIFICATION");
         this.registerReceiver(br2, filter2);
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        unregisterReceiver(br);
+        unregisterReceiver(br2);
+    }
 }
