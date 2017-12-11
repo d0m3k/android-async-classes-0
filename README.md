@@ -8,9 +8,9 @@ Pobierz ten projekt oraz [android-async-classes-1](https://github.com/d0m3k/andr
 W `android-async-classes-0` (`SimpleBroadcaster`) odbierz tę akcję w taki sam sposób, jak dla zadania drugiego, ale pamiętaj o odebraniu i wyświetleniu zawartości podanego stringa. Nie zapomnij o odrejestrowaniu w `onDestroy()`!
 
 ## Content Providers
-1. __Data insert__ W `android-async-classes-1` uzupełnij kod w klasie `MainActivity` tak, aby można było po naciśnięciu przycisku dodać do bazy danych zawartość pola tekstowego. Wszystkie wymagane stałe zawarte są w klasach `MySQLiteHelper` i `MyContentProvider`.
+1. __Data insert:__ W `android-async-classes-1` uzupełnij kod w klasie `MainActivity` tak, aby można było po naciśnięciu przycisku dodać do bazy danych zawartość pola tekstowego. Wszystkie wymagane stałe zawarte są w klasach `MySQLiteHelper` i `MyContentProvider`.
 
-2. __Data query and Cursor__ W `android-async-classes-0` uzupełnij kod w klasie `MainActivity` tak, aby można było za pomocą przycisków iterować po rekordach w bazie (dodawanych w poprzednim poleceniu). Logika działania przycisków i pola tekstowego dowolna, aczkolwiek nazwy przycisków mogą sporo sugerować.
+2. __Data query and Cursor:__ W `android-async-classes-0` uzupełnij kod w klasie `MainActivity` tak, aby można było za pomocą przycisków iterować po rekordach w bazie (dodawanych w poprzednim poleceniu). Logika działania przycisków i pola tekstowego dowolna, aczkolwiek nazwy przycisków mogą sporo sugerować.
 
 ## AsyncTask
-1. __Async Download and Render__ W `android-async-classes-0` dodaj kod, który umożliwi wyświetlanie na ImageButton zdjęć przy pomocy API "http://25.media.tumblr.com/tumblr_lj43tpC7tl1qass5so1_1280.png". Wciśnięcie przycisku powinno rozpocząć nowy AsyncTask, który ściąga obrazek, a następnie ustawia go jako tło buttona.
+1. __Async Download and Render:__ W `android-async-classes-0` dodaj kod, który umożliwi wyświetlanie na ImageButton zdjęć przy pomocy API "http://thecatapi.com/api/images/get?format=src&type=png". Wciśnięcie przycisku powinno rozpocząć nowy AsyncTask, który ściąga obrazek, a następnie ustawia go jako tło buttona.
