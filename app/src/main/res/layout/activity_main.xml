@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:text="Next in cursor" />
 
-        <ImageView
-            android:id="@+id/cat_image"
+        <ImageButton
+            android:id="@+id/cat_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/alert_dark_frame" />
