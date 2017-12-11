@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
@@ -38,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                TODO – fetch next element in cursor or inform about its end, when comes.
+            }
+        });
+
+        findViewById(R.id.cat_button).setOnClickListener(new View.OnClickListener() {
+            ImageButton imageButton = findViewById(R.id.cat_button);
+
+            @Override
+            public void onClick(View view) {
+//                TODO – Download cat image from internet and put as image.
             }
         });
     }
