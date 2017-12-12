@@ -3,6 +3,8 @@ package pl.dom3k.simplebroadcaster;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
 
 public class MainActivity extends AppCompatActivity {
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +25,21 @@ public class MainActivity extends AppCompatActivity {
 //        TODO - we could register some events in here, for instance.
 
 
-
 //        TODO – do some actions regarding showing data from Content Provider:
         findViewById(R.id.fetch_cursor).setOnClickListener(new View.OnClickListener() {
             TextView textToAdd = findViewById(R.id.content_provider_text);
 
             @Override
             public void onClick(View view) {
-//                TODO – do something to get the cursor, and (possibly) its first element
+                if (cursor != null){
+                    cursor.close();
+                }
+                cursor = initCursor();
+                if (cursor.getCount() < 1){
+                    textToAdd.setText(R.string.nothing_to_show);
+                    return;
+                }
+                textToAdd.setText(R.string.something_found);
             }
         });
 
@@ -38,7 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                TODO – fetch next element in cursor or inform about its end, when comes.
+                if (cursor == null) {
+                    textToAdd.setText(R.string.no_fetched);
+                    return;
+                }
+                if (cursor.isAfterLast() || cursor.isLast()) {
+                    textToAdd.setText(R.string.cursor_end);
+                    return;
+                }
+                cursor.moveToNext();
+                textToAdd.setText(cursor.getString(0));
             }
         });
 
@@ -52,10 +71,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private Cursor initCursor() {
+        String[] projection = {"message"};
+        Uri uri = Uri.parse("content://pl.dom3k.broadcaster2.MyContentProvider/tableName");
+        return getContentResolver().query(uri, projection, null, null, null);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        if (cursor != null){
+            cursor.close();
+        }
 //        TODO – we should always remember about unregistering events!
     }
 }
