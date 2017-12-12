@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                TODO – Download cat image from internet and put as image.
+                new CatTask(imageButton).execute();
             }
         });
     }
