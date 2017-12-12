@@ -17,17 +17,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".ManifestBroadcastReceiver"  android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.TIME_SET"/>
-            </intent-filter>
-        </receiver>
+        <!-- TODO – let's accept some broadcast events in here! -->
 
-        <receiver android:name=".NotifyBroadcastReceiver"  android:exported="true">
-            <intent-filter>
-                <action android:name="pl.dom3k.broadcaster2.broadcast.MY_NOTIFICATION"/>
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

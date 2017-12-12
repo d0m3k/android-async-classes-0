@@ -10,20 +10,14 @@ import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
 
 public class MainActivity extends AppCompatActivity {
 
-    BroadcastReceiver br = new MyBroadcastReceiver();
-    BroadcastReceiver br2 = new NotifyBroadcastReceiver();
+//  TODO – we can declare some BroadcastReceivers here...
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        IntentFilter filter = new IntentFilter(CONNECTIVITY_ACTION);
-        filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        this.registerReceiver(br, filter);
-
-        IntentFilter filter2 = new IntentFilter("pl.dom3k.broadcaster2.broadcast.MY_NOTIFICATION");
-        this.registerReceiver(br2, filter2);
+//        TODO - we could register some events related to broadcasts in here, for instance.
     }
 
 
@@ -31,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        unregisterReceiver(br);
-        unregisterReceiver(br2);
+//        TODO – we should always remember about unregistering events!
     }
 }
